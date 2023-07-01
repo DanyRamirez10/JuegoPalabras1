@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      background-image: url('fondo2.jpg'); /* Imagen de fondo del mar */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    .island {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-image: url('islas.jpg'); /* Imagen de la isla tropical */
+      background-size: cover;
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      /* Estilos para tablet */
+      #map {
+        width: 800px;
+        height: 600px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script>
+    window.addEventListener('load', function() {
+      var map = document.getElementById('map');
+
+      // Crear islas tropicales en posiciones predefinidas
+      createIsland(map, 200, 200, 'modelo.php');
+      createIsland(map, 400, 300, 'nivel3.html');
+      createIsland(map, 600, 150, 'nivel4.html');
+      createIsland(map, 300, 500, 'nivel5.html');
+      createIsland(map, 700, 400, 'nivel6.html');
+    });
+
+    // Función para crear una isla en una posición específica con un enlace a otro archivo
+    function createIsland(map, posX, posY, link) {
+      var island = document.createElement('div');
+      island.classList.add('island');
+      island.style.left = posX + 'px';
+      island.style.top = posY + 'px';
+      island.addEventListener('click', function() {
+        window.location.href = link;
+      });
+      map.appendChild(island);
+    }
+  </script>
+</body>
+</html>
