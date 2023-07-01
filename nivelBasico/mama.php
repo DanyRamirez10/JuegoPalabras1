@@ -176,7 +176,7 @@
     var errorAudio = document.getElementById('errorAudio');
     var ballAudio = document.getElementById('ballAudio');
 
-    var randomSyllables = ['Ma', 'ma.','la']; // Sílabas aleatorias
+    var randomSyllables = ['Ma', 'má.','la']; // Sílabas aleatorias
     var randomComponents = ['Componente1', 'Componente2']; // Componentes aleatorios
     var droppedSyllables = []; // Sílabas que han sido soltadas en el dropZone
     var score = 0;
@@ -288,7 +288,7 @@ function showErrorMessage(message) {
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
-      window.location.href = 'casa.php';
+      window.location.href = 'nivel1.php';
     });
 
     function goBack() {

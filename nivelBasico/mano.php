@@ -288,7 +288,7 @@ function showErrorMessage(message) {
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
-      window.location.href = 'mapa.php';
+      window.location.href = 'nivel1.php';
     });
 
     function goBack() {

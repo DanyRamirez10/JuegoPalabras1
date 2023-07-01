@@ -284,7 +284,7 @@ function showSuccessMessage(message) {
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
-      window.location.href = 'leña.php';
+      window.location.href = 'nivel1.php';
     });
 
     function goBack() {
