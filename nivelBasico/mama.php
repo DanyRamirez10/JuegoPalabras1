@@ -263,7 +263,7 @@
 }
 function showErrorMessage(message) {
   var errorMessageElement = document.getElementById('errorMessage');
-  errorMessageElement.innerHTML = '<img src="imagenes/over.png" alt="Carita llorando" width="300" height="300">';
+  errorMessageElement.innerHTML = '<img src="../imagenes/over.png" alt="Carita llorando" width="300" height="300">';
   errorMessageElement.style.fontSize = '300px'; // Ajusta el tamaño de la fuente
   errorMessageElement.style.position = 'fixed'; // Establece la posición fija
   errorMessageElement.style.top = '50%'; // Alinea verticalmente al centro
@@ -288,7 +288,7 @@ function showErrorMessage(message) {
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
-      window.location.href = 'nivel1.php';
+      window.location.href = 'mano.php';
     });
 
     function goBack() {
