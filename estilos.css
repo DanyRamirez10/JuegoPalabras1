@@ -1,0 +1,12 @@
+#draggableElement {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    color: white;
+  }
+  
+  #dropZone {
+    width: 200px;
+    height: 200px;
+    border: 2px dashed gray;
+  }
