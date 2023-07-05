@@ -142,6 +142,31 @@
 <body>
   <div id="container">
     <!-- Contenido HTML aquí -->
+
+    <?php
+          include("../conexion/conexion.php");
+          // Consulta para obtener el nombre de la persona (asegúrate de tener la tabla y columna correctas)
+          $sql = "SELECT nomAlum FROM usuario"; // Cambia "nombre_de_la_tabla" y "id" según tu estructura de base de datos
+
+          // Ejecutar la consulta
+          $result = $conn->query($sql);
+
+          // Verificar si se obtuvo algún resultado
+          if ($result->num_rows > 0) {
+              // Obtener la fila de resultados como un array asociativo
+              $row = $result->fetch_assoc();
+
+              // Obtener el nombre de la persona
+              $nombrePersona = $row["nomAlum"];
+
+              // Mostrar el nombre de la persona en el mensaje de éxito
+              echo " $nombrePersona";
+          } else {
+              // Mostrar un mensaje de error si no se encontraron resultados
+              echo "<script>showErrorMessage('No se encontró el nombre de la persona en la base de datos.');</script>";
+          }
+          ?>
+
     <img id="ballImage" src="../imagenes/pelota.jpg" alt="Imagen" width="300" height="200">
     <div id="dropZone"></div>
     <div>
@@ -285,7 +310,11 @@
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
+<<<<<<< HEAD
       window.location.href = 'mama.php';
+=======
+      window.location.href = 'casa.php';
+>>>>>>> 604b727ab2c621f3f9994907820bdd42c010b786
     });
 
     function goBack() {

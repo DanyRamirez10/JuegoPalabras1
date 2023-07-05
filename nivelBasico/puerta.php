@@ -23,7 +23,7 @@
     }
 
     .clickableElement {
-      width: 100px;
+      width: 150px;
       height: 100px;
       background-color: blue;
       color: white;
@@ -41,7 +41,7 @@
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
-      width: 200px;
+      width: 300px;
       height: 100px;
       border: 4px solid rgb(230, 14, 14);
       margin-top: 20px;

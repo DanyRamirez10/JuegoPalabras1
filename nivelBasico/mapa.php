@@ -288,7 +288,7 @@ function showErrorMessage(message) {
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
-      window.location.href = 'leon.php';
+      window.location.href = 'momia.php';
     });
 
     function goBack() {
