@@ -98,8 +98,8 @@
             0% {
                 transform: scale(1);
             }
-            50% {
-                transform: scale(1.5);
+             50% {
+                 transform: scale(1.5);
             }
             100% {
                 transform: scale(1);
@@ -126,59 +126,94 @@
         
         <button onclick="borrarTexto()" class="boton-borrar">Borrar</button>
 
-        <button onclick="agregarTexto('PE')">PE</button>
-        <button onclick="agregarTexto('MI')">MI</button>
-        <button onclick="agregarTexto('ME')">ME</button>
-        <button onclick="agregarTexto('MA')">MA</button>
-        <button onclick="agregarTexto('AMA')">AMA</button>
-        <button onclick="agregarTexto('MÁ')">MÁ</button>
-        
+        <div id="buttonContainer"></div>
+
     </center>
 
     <script>
+        var buttons = [
+            { label: "PE", onclick: "agregarTexto('PE')" },
+            { label: "MI", onclick: "agregarTexto('MI')" },
+            { label: "ME", onclick: "agregarTexto('ME')" },
+            { label: "MA", onclick: "agregarTexto('MA')" },
+            { label: "AMA", onclick: "agregarTexto('AMA')" },
+            { label: "MÁ", onclick: "agregarTexto('MÁ')" }
+        ];
+
+        function shuffle(array) {
+            var currentIndex = array.length, temporaryValue, randomIndex;
+        
+            while (0 !== currentIndex) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+        
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+        
+            return array;
+        }
+        
+        function createButtons() {
+            var buttonContainer = document.getElementById("buttonContainer");
+            buttonContainer.innerHTML = "";
+
+            var shuffledButtons = shuffle(buttons);
+
+            shuffledButtons.forEach(function(buttonData) {
+                var button = document.createElement("button");
+                button.textContent = buttonData.label;
+                button.onclick = new Function(buttonData.onclick);
+                buttonContainer.appendChild(button);
+            });
+        }
+
+        createButtons();
+
         function agregarTexto(texto) {
-        var input = document.getElementById("texto");
-        input.value += texto;
+            var input = document.getElementById("texto");
+            input.value += texto;
 
-  // Verificar si la palabra completa ha sido formada
-        if (input.value.toLowerCase() === "mimamámeama") {
-         var palabras = ["MI", "MAMÁ", "ME", "AMA"];
-        var fraseSeparada = palabras.join(" ");
+            // Verificar si la palabra completa ha sido formada
+            if (input.value.toLowerCase() === "mimamámeama") {
+                var palabras = ["MI", "MAMÁ", "ME", "AMA"];
+                var fraseSeparada = palabras.join(" ");
 
-        var felicitacionesAudio = new Audio('Sonidos/felicidades.mp3');
-        felicitacionesAudio.play();
+                var felicitacionesAudio = new Audio('Sonidos/felicidades.mp3');
+                felicitacionesAudio.play();
 
-    // Mostrar la frase separada en la pantalla
-        input.value = fraseSeparada;
+                // Mostrar la frase separada en la pantalla
+                input.value = fraseSeparada;
 
-    // Agregar estrellitas
-        var estrellasContainer = document.createElement('div');
-        estrellasContainer.classList.add('estrellas-container');
-        for (var i = 0; i < 5; i++) {
-            var estrella = document.createElement('img');
-        estrella.src = 'Imagenes/estrellita.png';
-        estrella.classList.add('estrella');
-        estrellasContainer.appendChild(estrella);
+                // Agregar estrellitas
+                var estrellasContainer = document.createElement('div');
+                estrellasContainer.classList.add('estrellas-container');
+                for (var i = 0; i < 5; i++) {
+                    var estrella = document.createElement('img');
+                    estrella.src = 'Imagenes/estrellita.png';
+                    estrella.classList.add('estrella');
+                    estrellasContainer.appendChild(estrella);
+                }
+
+                var body = document.querySelector('body');
+                body.appendChild(estrellasContainer);
+            } else if (input.value.length >= 10) {
+                var fallasteAudio = document.getElementById("fallasteAudio");
+                fallasteAudio.play();
+            }
         }
 
-        var body = document.querySelector('body');
-        body.appendChild(estrellasContainer);
-    } else if (input.value.length >= 10) {
-    var fallasteAudio = document.getElementById("fallasteAudio");
-    fallasteAudio.play();
-     }
-    }
+        function borrarTexto() {
+            var input = document.getElementById("texto");
+            input.value = "";
 
-     function borrarTexto() {
-        var input = document.getElementById("texto");
-         input.value = "";
-
-         // Eliminar el contenedor de las estrellas
-        var estrellasContainer = document.querySelector('.estrellas-container');
-         if (estrellasContainer) {
-             estrellasContainer.parentNode.removeChild(estrellasContainer);
+            // Eliminar el contenedor de las estrellas
+            var estrellasContainer = document.querySelector('.estrellas-container');
+            if (estrellasContainer) {
+                estrellasContainer.parentNode.removeChild(estrellasContainer);
+            }
         }
-     }
     </script>
 
     <div class="botones-container">

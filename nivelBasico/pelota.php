@@ -310,7 +310,11 @@
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
+<<<<<<< HEAD
+      window.location.href = 'mama.php';
+=======
       window.location.href = 'casa.php';
+>>>>>>> 604b727ab2c621f3f9994907820bdd42c010b786
     });
 
     function goBack() {
