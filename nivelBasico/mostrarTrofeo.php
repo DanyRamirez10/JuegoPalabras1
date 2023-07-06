@@ -25,32 +25,36 @@
       text-shadow: 2px 2px 4px rgba(1, 2, 0, 0.5);
       white-space: nowrap;
     }
-    
-    .back-button {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background-color: rgba(255, 255, 255, 0.5);
+
+    .custom-button {
+      background-image: url('../imagenes/borrar.png');
+      background-size: cover;
+      background-position: center;
+      width: 100px;
+      height: 100px;
       border: none;
-      padding: 10px 20px;
-      font-size: 18px;
       cursor: pointer;
+      position: absolute;
+      top: 250px;
+      right: -100px;
     }
-    
-    .back-button:hover {
-      background-color: rgba(255, 255, 255, 0.8);
+
+    .custom-button:hover {
+      opacity: 0.8;
     }
   </style>
 </head>
 <body onload="playAudio()">
   <div class="image-container">
-  <button onclick="location.href='NivelesP.php'" class="boton-atras">   </button>
     <img src="../imagenes/profeo3.gif" alt="Imagen de transición">
-    <div class="image-text">Felicidades.... Completaste el nivel</div>
+    <div class="image-text">Felicidades.... Completastes el nivel</div>
     <audio id="audioPlayer">
       <source src="../sonidos/ringtones.mp3" type="audio/mpeg">
       Tu navegador no admite el elemento de audio.
     </audio>
+    <a href="../pantallas/NivelesP.php">
+      <button class="custom-button"></button>
+    </a>
   </div>
   
   <script>
@@ -58,11 +62,6 @@
       var audioPlayer = document.getElementById("audioPlayer");
       audioPlayer.play();
     }
-    
-    function goBack() {
-      window.history.back();
-    }
   </script>
 </body>
 </html>
-

@@ -159,7 +159,7 @@
     <div id="stars"></div>
     <div id="successMessage"></div>
     <div id="errorMessage"></div>
-    <button id="redirectButton"></button>
+    <button id="redirectButton" disabled></button>
     <button id="backButton" onclick="goBack()"></button>
     <button id="reloadButton" onclick="reloadPage()"></button>
   </div>
@@ -235,6 +235,7 @@
         updateScore();
         stars += '★';
         updateStars();
+        document.getElementById('redirectButton').removeAttribute('disabled');
       } else if (currentSyllables.length >= 2) {
         showErrorMessage('Palabra incorrecta. No se formó la palabra correcta.');
         errorAudio.play();
@@ -288,9 +289,8 @@ function showErrorMessage(message) {
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
-      window.location.href = 'leon.php';
+      window.location.href = 'leon.php'; // Reemplaza con la URL de redirección correcta
     });
-
     function goBack() {
       window.history.back();
     }

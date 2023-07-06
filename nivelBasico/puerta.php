@@ -145,21 +145,21 @@
   </style>
 </head>
 <body>
-  <div id="container">
+<div id="container">
     <!-- Contenido HTML aquí -->
     <img id="ballImage" src="../imagenes/puerta.jpg" alt="Imagen" width="300" height="200">
     <div id="dropZone"></div>
     <div>
       <div class="clickableElement" data-sound="sound4">Puer</div>
       <div class="clickableElement" data-sound="sound5">ta.</div>
-      <div class="clickableElement" data-sound="sound5">pu</div>
+      <div class="clickableElement" data-sound="sound5">tas</div>
 
     </div>
     <div id="score">Puntaje: 0</div>
     <div id="stars"></div>
     <div id="successMessage"></div>
     <div id="errorMessage"></div>
-    <button id="redirectButton"></button>
+    <button id="redirectButton" disabled></button>
     <button id="backButton" onclick="goBack()"></button>
     <button id="reloadButton" onclick="reloadPage()"></button>
   </div>
@@ -176,7 +176,7 @@
     var errorAudio = document.getElementById('errorAudio');
     var ballAudio = document.getElementById('ballAudio');
 
-    var randomSyllables = ['Puer', 'ta.','pu']; // Sílabas aleatorias
+    var randomSyllables = ['Puer', 'ta.','tas']; // Sílabas aleatorias
     var randomComponents = ['Componente1', 'Componente2']; // Componentes aleatorios
     var droppedSyllables = []; // Sílabas que han sido soltadas en el dropZone
     var score = 0;
@@ -235,6 +235,7 @@
         updateScore();
         stars += '★';
         updateStars();
+        document.getElementById('redirectButton').removeAttribute('disabled');
       } else if (currentSyllables.length >= 2) {
         showErrorMessage('Palabra incorrecta. No se formó la palabra correcta.');
         errorAudio.play();
@@ -288,9 +289,8 @@ function showErrorMessage(message) {
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
-      window.location.href = 'pulpo.php';
+      window.location.href = 'pulpo.php'; // Reemplaza con la URL de redirección correcta
     });
-
     function goBack() {
       window.history.back();
     }

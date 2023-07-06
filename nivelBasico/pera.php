@@ -159,7 +159,7 @@
     <div id="stars"></div>
     <div id="successMessage"></div>
     <div id="errorMessage"></div>
-    <button id="redirectButton"></button>
+    <button id="redirectButton" disabled></button>
     <button id="backButton" onclick="goBack()"></button>
     <button id="reloadButton" onclick="reloadPage()"></button>
   </div>
@@ -176,7 +176,7 @@
     var errorAudio = document.getElementById('errorAudio');
     var ballAudio = document.getElementById('ballAudio');
 
-    var randomSyllables = ['Pe', 'ra.','rra']; // Sílabas aleatorias
+    var randomSyllables = ['Pe', 'ra.','raa']; // Sílabas aleatorias
     var randomComponents = ['Componente1', 'Componente2']; // Componentes aleatorios
     var droppedSyllables = []; // Sílabas que han sido soltadas en el dropZone
     var score = 0;
@@ -235,6 +235,7 @@
         updateScore();
         stars += '★';
         updateStars();
+        document.getElementById('redirectButton').removeAttribute('disabled');
       } else if (currentSyllables.length >= 2) {
         showErrorMessage('Palabra incorrecta. No se formó la palabra correcta.');
         errorAudio.play();
@@ -288,9 +289,8 @@ function showErrorMessage(message) {
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
-      window.location.href = 'piedra.php';
+      window.location.href = 'piedra.php'; // Reemplaza con la URL de redirección correcta
     });
-
     function goBack() {
       window.history.back();
     }

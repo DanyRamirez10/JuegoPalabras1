@@ -151,15 +151,15 @@
     <div id="dropZone"></div>
     <div>
       <div class="clickableElement" data-sound="sound4">Mo</div>
-      <div class="clickableElement" data-sound="sound5">no.</div>
-      <div class="clickableElement" data-sound="sound5">mo</div>
+      <div class="clickableElement" data-sound="sound5">nos.</div>
+      <div class="clickableElement" data-sound="sound5">no</div>
 
     </div>
     <div id="score">Puntaje: 0</div>
     <div id="stars"></div>
     <div id="successMessage"></div>
     <div id="errorMessage"></div>
-    <button id="redirectButton"></button>
+    <button id="redirectButton" disabled></button>
     <button id="backButton" onclick="goBack()"></button>
     <button id="reloadButton" onclick="reloadPage()"></button>
   </div>
@@ -176,7 +176,7 @@
     var errorAudio = document.getElementById('errorAudio');
     var ballAudio = document.getElementById('ballAudio');
 
-    var randomSyllables = ['Mo', 'no.','mo']; // Sílabas aleatorias
+    var randomSyllables = ['Mo', 'nos.','no']; // Sílabas aleatorias
     var randomComponents = ['Componente1', 'Componente2']; // Componentes aleatorios
     var droppedSyllables = []; // Sílabas que han sido soltadas en el dropZone
     var score = 0;
@@ -235,6 +235,7 @@
         updateScore();
         stars += '★';
         updateStars();
+        document.getElementById('redirectButton').removeAttribute('disabled');
       } else if (currentSyllables.length >= 2) {
         showErrorMessage('Palabra incorrecta. No se formó la palabra correcta.');
         errorAudio.play();
@@ -288,9 +289,8 @@ function showErrorMessage(message) {
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
-      window.location.href = 'nube.php';
+      window.location.href = 'nube.php'; // Reemplaza con la URL de redirección correcta
     });
-
     function goBack() {
       window.history.back();
     }

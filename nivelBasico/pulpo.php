@@ -23,7 +23,7 @@
     }
 
     .clickableElement {
-      width: 100px;
+      width: 150px;
       height: 100px;
       background-color: blue;
       color: white;
@@ -41,7 +41,7 @@
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
-      width: 200px;
+      width: 300px;
       height: 100px;
       border: 4px solid rgb(230, 14, 14);
       margin-top: 20px;
@@ -145,9 +145,9 @@
   </style>
 </head>
 <body>
-  <div id="container">
+<div id="container">
     <!-- Contenido HTML aquí -->
-    <img id="ballImage" src="../imagenes/pulpo.avif" alt="Imagen" width="300" height="200">
+    <img id="ballImage" src="../imagenes/puerta.jpg" alt="Imagen" width="300" height="200">
     <div id="dropZone"></div>
     <div>
       <div class="clickableElement" data-sound="sound4">Pul</div>
@@ -159,7 +159,7 @@
     <div id="stars"></div>
     <div id="successMessage"></div>
     <div id="errorMessage"></div>
-    <button id="redirectButton"></button>
+    <button id="redirectButton" disabled></button>
     <button id="backButton" onclick="goBack()"></button>
     <button id="reloadButton" onclick="reloadPage()"></button>
   </div>
@@ -235,6 +235,7 @@
         updateScore();
         stars += '★';
         updateStars();
+        document.getElementById('redirectButton').removeAttribute('disabled');
       } else if (currentSyllables.length >= 2) {
         showErrorMessage('Palabra incorrecta. No se formó la palabra correcta.');
         errorAudio.play();
@@ -288,9 +289,8 @@ function showErrorMessage(message) {
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
-      window.location.href = 'mostrarTrofeo.php';
+      window.location.href = 'mostrarTrofeo.php'; // Reemplaza con la URL de redirección correcta
     });
-
     function goBack() {
       window.history.back();
     }

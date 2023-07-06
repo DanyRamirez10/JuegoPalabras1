@@ -151,15 +151,15 @@
     <div id="dropZone"></div>
     <div>
       <div class="clickableElement" data-sound="sound4">Ma</div>
-      <div class="clickableElement" data-sound="sound5">ma.</div>
-      <div class="clickableElement" data-sound="sound5">la.</div>
+      <div class="clickableElement" data-sound="sound5">má.</div>
+      <div class="clickableElement" data-sound="sound5">la</div>
 
     </div>
     <div id="score">Puntaje: 0</div>
     <div id="stars"></div>
     <div id="successMessage"></div>
     <div id="errorMessage"></div>
-    <button id="redirectButton"></button>
+    <button id="redirectButton" disabled></button>
     <button id="backButton" onclick="goBack()"></button>
     <button id="reloadButton" onclick="reloadPage()"></button>
   </div>
@@ -235,6 +235,7 @@
         updateScore();
         stars += '★';
         updateStars();
+        document.getElementById('redirectButton').removeAttribute('disabled');
       } else if (currentSyllables.length >= 2) {
         showErrorMessage('Palabra incorrecta. No se formó la palabra correcta.');
         errorAudio.play();
@@ -288,9 +289,8 @@ function showErrorMessage(message) {
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
-      window.location.href = 'mano.php';
+      window.location.href = 'mano.php'; // Reemplaza con la URL de redirección correcta
     });
-
     function goBack() {
       window.history.back();
     }

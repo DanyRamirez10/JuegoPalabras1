@@ -66,9 +66,10 @@
       top: 10%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 48px; /* Tamaño de las estrellas aumentado */
+      font-size: 100px; /* Tamaño de las estrellas aumentado */
       color: yellow; /* Cambia el color de las estrellas a amarillo */
       animation: blink 1s infinite;
+      display: none; /* Inicialmente ocultas */
     }
 
     @keyframes blink {
@@ -136,54 +137,29 @@
       background-position: center;
       background-size: contain;
     }
+    @keyframes rotate {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
   </style>
 </head>
 <body>
   <div id="container">
     <!-- Contenido HTML aquí -->
-
-    <?php
-          include("../conexion/conexion.php");
-          // Consulta para obtener el nombre de la persona (asegúrate de tener la tabla y columna correctas)
-          $sql = "SELECT nomAlum FROM usuario"; // Cambia "nombre_de_la_tabla" y "id" según tu estructura de base de datos
-
-          // Ejecutar la consulta
-          $result = $conn->query($sql);
-
-          // Verificar si se obtuvo algún resultado
-          if ($result->num_rows > 0) {
-              // Obtener la fila de resultados como un array asociativo
-              $row = $result->fetch_assoc();
-
-              // Obtener el nombre de la persona
-              $nombrePersona = $row["nomAlum"];
-
-              // Mostrar el nombre de la persona en el mensaje de éxito
-              echo " $nombrePersona";
-          } else {
-              // Mostrar un mensaje de error si no se encontraron resultados
-              echo "<script>showErrorMessage('No se encontró el nombre de la persona en la base de datos.');</script>";
-          }
-
-          // Cerrar la conexión a la base de datos
-          $conn->close();
-          ?>
-    
-    
-    <link href="https://fonts.googleapis.com/css?family=Vladimir+Script" rel="stylesheet">
     <img id="ballImage" src="../imagenes/casa.jpg" alt="Imagen" width="300" height="200">
     <div id="dropZone"></div>
     <div>
-      <div class="clickableElement" data-sound="sound4">ca</div>
-      <div class="clickableElement" data-sound="sound5">sa</div>
+      <div class="clickableElement" data-sound="sound4">Ca</div>
+      <div class="clickableElement" data-sound="sound5">sa.</div>
       <div class="clickableElement" data-sound="sound5">si</div>
+
     </div>
-    
     <div id="score">Puntaje: 0</div>
     <div id="stars"></div>
     <div id="successMessage"></div>
     <div id="errorMessage"></div>
-    <button id="redirectButton"></button>
+    <button id="redirectButton" disabled></button>
     <button id="backButton" onclick="goBack()"></button>
     <button id="reloadButton" onclick="reloadPage()"></button>
   </div>
@@ -248,27 +224,28 @@
     });
 
     function checkWord() {
-  var currentSyllables = Array.from(dropZone.children).map(function(element) {
-    return element.getAttribute('data-component');
-  });
+      var currentSyllables = Array.from(dropZone.children).map(function(element) {
+        return element.getAttribute('data-component');
+      });
 
-  if (currentSyllables.join('') === 'Componente1Componente2') {
-    showSuccessMessage('¡Palabra correcta! Felicitaciones');
-    successAudio.play();
-    score += 2;
-    updateScore();
-    stars += '★';
-    updateStars();
-  } else if (currentSyllables.length >= 2) {
-    showErrorMessage('Palabra incorrecta. Se ingresaron más de tres sílabas.');
-    errorAudio.play();
-  } else if (currentSyllables.length === 3) {
-    showErrorMessage('Palabra incorrecta. No se formó la palabra correcta.');
-    errorAudio.play();
-  }
-}
+      if (currentSyllables.join('') === 'Componente1Componente2') {
+        showSuccessMessage('¡Palabra correcta! Felicitaciones');
+        successAudio.play();
+        score += 2;
+        updateScore();
+        stars += '★';
+        updateStars();
+        document.getElementById('redirectButton').removeAttribute('disabled');
+      } else if (currentSyllables.length >= 2) {
+        showErrorMessage('Palabra incorrecta. No se formó la palabra correcta.');
+        errorAudio.play();
+      } else if (currentSyllables.length === 3) {
+        showErrorMessage('Palabra incorrecta. No se formó la palabra correcta.');
+        errorAudio.play();
+      }
+    }
 
-function showSuccessMessage(message) {
+  function showSuccessMessage(message) {
   var successMessageElement = document.getElementById('successMessage');
   successMessageElement.innerHTML = '<img src="../imagenes/feli.gif" alt="Imagen sin fondo" style="width: 100%; height: auto; animation: zoomAndBlink 1s infinite;">';
   successMessageElement.style.fontSize = '48px'; // Ajusta el tamaño de la fuente
@@ -285,8 +262,7 @@ function showSuccessMessage(message) {
     starsElement.style.display = 'none';
   }, 3000);
 }
-
-    function showErrorMessage(message) {
+function showErrorMessage(message) {
   var errorMessageElement = document.getElementById('errorMessage');
   errorMessageElement.innerHTML = '<img src="../imagenes/over.png" alt="Carita llorando" width="300" height="300">';
   errorMessageElement.style.fontSize = '300px'; // Ajusta el tamaño de la fuente
@@ -301,7 +277,6 @@ function showSuccessMessage(message) {
     errorMessageElement.innerHTML = '';
   }, 3000);
 }
-
     function updateScore() {
       var scoreElement = document.getElementById('score');
       scoreElement.textContent = 'Puntaje: ' + score;
@@ -314,9 +289,8 @@ function showSuccessMessage(message) {
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
-      window.location.href = 'leña.php';
+      window.location.href = 'leña.php'; // Reemplaza con la URL de redirección correcta
     });
-
     function goBack() {
       window.history.back();
     }
