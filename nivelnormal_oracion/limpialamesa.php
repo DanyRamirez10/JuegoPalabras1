@@ -63,14 +63,6 @@
         }
 
         .boton-borrar {
-        background-color: red;
-        color: white;
-        text-decoration: none;
-        text-align: center; /* Centrar el texto */
-        display: flex; /* Utilizar flexbox para centrar verticalmente */
-        align-items: center; /* Centrar verticalmente */
-        justify-content: flex-start;; /* Centrar horizontalmente */
-        font-family: 'arial'; 
         background-image: url('../imagenes/borrar.png'); /* Ruta de la imagen que deseas utilizar */
         background-size: cover;
         background-position: center;
