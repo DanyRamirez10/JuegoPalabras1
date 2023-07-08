@@ -10,7 +10,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-image: url('../imagenes/fondo2.jpg'); /* Ruta de la imagen de fondo */
+      background-image: url('../imagenes/fondoNormal.jpg'); /* Ruta de la imagen de fondo */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -147,12 +147,14 @@
 <body>
   <div id="container">
     <!-- Contenido HTML aquí -->
-    <img id="ballImage" src="../imagenes/mono.jpg" alt="Imagen" width="300" height="200">
+    <img id="ballImage" src="../imagenes/camino.png" alt="Imagen" width="300" height="200">
     <div id="dropZone"></div>
     <div>
-      <div class="clickableElement" data-sound="sound4">Mo</div>
-      <div class="clickableElement" data-sound="sound5">nos.</div>
-      <div class="clickableElement" data-sound="sound5">no</div>
+      <div class="clickableElement" data-sound="sound4">no</div>
+      <div class="clickableElement" data-sound="sound5">mi</div>
+      <div class="clickableElement" data-sound="sound5">Ca</div>
+      <div class="clickableElement" data-sound="sound6">lo</div>
+
 
     </div>
     <div id="score">Puntaje: 0</div>
@@ -176,8 +178,8 @@
     var errorAudio = document.getElementById('errorAudio');
     var ballAudio = document.getElementById('ballAudio');
 
-    var randomSyllables = ['Mo', 'nos.','no']; // Sílabas aleatorias
-    var randomComponents = ['Componente1', 'Componente2']; // Componentes aleatorios
+    var randomSyllables = ['Ca', 'mi','no','lo']; // Sílabas aleatorias
+    var randomComponents = ['Componente1', 'Componente2','Componente3']; // Componentes aleatorios
     var droppedSyllables = []; // Sílabas que han sido soltadas en el dropZone
     var score = 0;
     var stars = '★★';
@@ -228,7 +230,7 @@
         return element.getAttribute('data-component');
       });
 
-      if (currentSyllables.join('') === 'Componente1Componente2') {
+      if (currentSyllables.join('') === 'Componente1Componente2Componente3') {
         showSuccessMessage('¡Palabra correcta! Felicitaciones');
         successAudio.play();
         score += 2;
@@ -236,10 +238,10 @@
         stars += '★';
         updateStars();
         document.getElementById('redirectButton').removeAttribute('disabled');
-      } else if (currentSyllables.length >= 2) {
+      } else if (currentSyllables.length >= 3) {
         showErrorMessage('Palabra incorrecta. No se formó la palabra correcta.');
         errorAudio.play();
-      } else if (currentSyllables.length === 3) {
+      } else if (currentSyllables.length === 4) {
         showErrorMessage('Palabra incorrecta. No se formó la palabra correcta.');
         errorAudio.play();
       }
@@ -289,10 +291,10 @@ function showErrorMessage(message) {
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
-      window.location.href = 'nube.php'; // Reemplaza con la URL de redirección correcta
+      window.location.href = 'cereza.php'; // Reemplaza con la URL de redirección correcta
     });
     function goBack() {
-      window.history.back();
+        window.location.href = '../pantallas/nivelesP.php'; // Reemplaza con la URL para retroceder
     }
     function reloadPage() {
       location.reload();

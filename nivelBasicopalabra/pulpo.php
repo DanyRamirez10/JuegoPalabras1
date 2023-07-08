@@ -23,7 +23,7 @@
     }
 
     .clickableElement {
-      width: 100px;
+      width: 150px;
       height: 100px;
       background-color: blue;
       color: white;
@@ -41,7 +41,7 @@
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
-      width: 200px;
+      width: 300px;
       height: 100px;
       border: 4px solid rgb(230, 14, 14);
       margin-top: 20px;
@@ -145,14 +145,14 @@
   </style>
 </head>
 <body>
-  <div id="container">
+<div id="container">
     <!-- Contenido HTML aquí -->
-    <img id="ballImage" src="../imagenes/mapa.jpg" alt="Imagen" width="300" height="200">
+    <img id="ballImage" src="../imagenes/pulpo.jpg" alt="Imagen" width="300" height="200">
     <div id="dropZone"></div>
     <div>
-      <div class="clickableElement" data-sound="sound4">Ma</div>
-      <div class="clickableElement" data-sound="sound5">pa.</div>
-      <div class="clickableElement" data-sound="sound5">mi</div>
+      <div class="clickableElement" data-sound="sound4">Pul</div>
+      <div class="clickableElement" data-sound="sound5">po.</div>
+      <div class="clickableElement" data-sound="sound5">pol</div>
 
     </div>
     <div id="score">Puntaje: 0</div>
@@ -176,7 +176,7 @@
     var errorAudio = document.getElementById('errorAudio');
     var ballAudio = document.getElementById('ballAudio');
 
-    var randomSyllables = ['Ma', 'pa.','mi']; // Sílabas aleatorias
+    var randomSyllables = ['Pul', 'po.','pol']; // Sílabas aleatorias
     var randomComponents = ['Componente1', 'Componente2']; // Componentes aleatorios
     var droppedSyllables = []; // Sílabas que han sido soltadas en el dropZone
     var score = 0;
@@ -289,7 +289,7 @@ function showErrorMessage(message) {
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
-      window.location.href = 'momia.php'; // Reemplaza con la URL de redirección correcta
+      window.location.href = 'mostrarTrofeo.php'; // Reemplaza con la URL de redirección correcta
     });
     function goBack() {
       window.history.back();

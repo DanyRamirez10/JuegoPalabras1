@@ -147,12 +147,12 @@
 <body>
   <div id="container">
     <!-- Contenido HTML aquí -->
-    <img id="ballImage" src="../imagenes/casa.jpg" alt="Imagen" width="300" height="200">
+    <img id="ballImage" src="../imagenes/mano.jpg" alt="Imagen" width="300" height="200">
     <div id="dropZone"></div>
     <div>
-      <div class="clickableElement" data-sound="sound4">Ca</div>
-      <div class="clickableElement" data-sound="sound5">sa.</div>
-      <div class="clickableElement" data-sound="sound5">si</div>
+      <div class="clickableElement" data-sound="sound4">Ma</div>
+      <div class="clickableElement" data-sound="sound5">no.</div>
+      <div class="clickableElement" data-sound="sound5">ma</div>
 
     </div>
     <div id="score">Puntaje: 0</div>
@@ -176,7 +176,7 @@
     var errorAudio = document.getElementById('errorAudio');
     var ballAudio = document.getElementById('ballAudio');
 
-    var randomSyllables = ['Ca', 'sa.','si']; // Sílabas aleatorias
+    var randomSyllables = ['Ma', 'no.','ma']; // Sílabas aleatorias
     var randomComponents = ['Componente1', 'Componente2']; // Componentes aleatorios
     var droppedSyllables = []; // Sílabas que han sido soltadas en el dropZone
     var score = 0;
@@ -289,10 +289,10 @@ function showErrorMessage(message) {
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
-      window.location.href = 'leña.php'; // Reemplaza con la URL de redirección correcta
+      window.location.href = 'mapa.php'; // Reemplaza con la URL de redirección correcta
     });
     function goBack() {
-      window.history.back();
+        window.location.href = '../pantallas/nivelesP.php'; // Reemplaza con la URL para retroceder
     }
     function reloadPage() {
       location.reload();

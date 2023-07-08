@@ -10,7 +10,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-image: url('../imagenes/fondo2.jpg'); /* Ruta de la imagen de fondo */
+      background-image: url('../imagenes/fondoNormal.jpg'); /* Ruta de la imagen de fondo */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -147,12 +147,15 @@
 <body>
   <div id="container">
     <!-- Contenido HTML aquí -->
-    <img id="ballImage" src="../imagenes/leña.jpg" alt="Imagen" width="300" height="200">
+    <img id="ballImage" src="../imagenes/elefante.png" alt="Imagen" width="300" height="200">
     <div id="dropZone"></div>
     <div>
-      <div class="clickableElement" data-sound="sound4">Le</div>
-      <div class="clickableElement" data-sound="sound5">ña.</div>
-      <div class="clickableElement" data-sound="sound5">na</div>
+      <div class="clickableElement" data-sound="sound4">le</div>
+      <div class="clickableElement" data-sound="sound5">E</div>
+      <div class="clickableElement" data-sound="sound5">fan</div>
+      <div class="clickableElement" data-sound="sound6">te</div>
+      <div class="clickableElement" data-sound="sound7">mo</div>
+
 
     </div>
     <div id="score">Puntaje: 0</div>
@@ -176,8 +179,8 @@
     var errorAudio = document.getElementById('errorAudio');
     var ballAudio = document.getElementById('ballAudio');
 
-    var randomSyllables = ['Le', 'ña.','na']; // Sílabas aleatorias
-    var randomComponents = ['Componente1', 'Componente2']; // Componentes aleatorios
+    var randomSyllables = ['E','le','fan','te','mo']; // Sílabas aleatorias
+    var randomComponents = ['Componente1', 'Componente2','Componente3','Componente4']; // Componentes aleatorios
     var droppedSyllables = []; // Sílabas que han sido soltadas en el dropZone
     var score = 0;
     var stars = '★★';
@@ -217,7 +220,7 @@
       });
     });
 
-    // Agrega el evento de clic a la imagen de la pelota para reproducir el sonido
+    // Agrega el evento de clic a la imagen de la imagen para reproducir el sonido
     var ballImage = document.getElementById('ballImage');
     ballImage.addEventListener('click', function() {
       ballAudio.play();
@@ -228,7 +231,7 @@
         return element.getAttribute('data-component');
       });
 
-      if (currentSyllables.join('') === 'Componente1Componente2') {
+      if (currentSyllables.join('') === 'Componente1Componente2Componente3Componente4') {
         showSuccessMessage('¡Palabra correcta! Felicitaciones');
         successAudio.play();
         score += 2;
@@ -236,10 +239,10 @@
         stars += '★';
         updateStars();
         document.getElementById('redirectButton').removeAttribute('disabled');
-      } else if (currentSyllables.length >= 2) {
+      } else if (currentSyllables.length >= 4) {
         showErrorMessage('Palabra incorrecta. No se formó la palabra correcta.');
         errorAudio.play();
-      } else if (currentSyllables.length === 3) {
+      } else if (currentSyllables.length === 5) {
         showErrorMessage('Palabra incorrecta. No se formó la palabra correcta.');
         errorAudio.play();
       }
@@ -289,10 +292,10 @@ function showErrorMessage(message) {
 
     var redirectButton = document.getElementById('redirectButton');
     redirectButton.addEventListener('click', function() {
-      window.location.href = 'leon.php'; // Reemplaza con la URL de redirección correcta
+      window.location.href = 'serpiente.php'; // Reemplaza con la URL de redirección correcta
     });
     function goBack() {
-      window.history.back();
+        window.location.href = '../pantallas/nivelesP.php'; // Reemplaza con la URL para retroceder
     }
     function reloadPage() {
       location.reload();

@@ -9,6 +9,10 @@
     <style>
         /* Estilos CSS para los elementos de la página */
         body {
+            background-image: url('../imagenes/fondo2.jpg'); /* Ruta de la imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             background-color: #C0C0C0; /* Color de fondo verde para toda la página */
         }
 
@@ -23,13 +27,14 @@
             height: 80px;
             background-color: white; /* Fondo  para los botones  */
             border-radius: 10px;
-            padding: 15px 30px;
+            padding: 7px 30px;
             margin: 5px;
             color: #22083c;
             text-decoration: none;
-            font-size: 20px; /* Tamaño de fuente */
-            font-family: Arial Black, sans-serif; /* Cambia "Arial, sans-serif" por la fuente que desees utilizar */
-            transition: transform 0.3s ease; /* Transición suave de la propiedad transform */
+            font-size: 60px; /* Tamaño de fuente */
+            font-family: 'Vladimir Script'; /* Cambia por la fuente que desees utilizar */
+            font-weight: bold; /* Texto en negrita */
+            text-align: center; /* Centrar el texto */
         }
         img {
             width: 300px; /* Establecer el ancho deseado para la imagen */
@@ -45,49 +50,61 @@
 
         #texto {
             display: block;
-            width: 300px;
+            width: 500px;
             height: 50px;
             font-size: 18px;
             margin: 20px auto;
+            font-weight: bold;
+            font-family: 'Vladimir Script';
+            font-size: 50px;
+            white-space: pre-wrap; /* Permite conservar los saltos de línea */
         }
 
         .boton-borrar {
-            background-color: red;
-            color: white;
-            text-decoration: none;
-        }
+        background-image: url('../imagenes/borrar.png'); /* Ruta de la imagen que deseas utilizar */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-right: 10px;
 
-        .boton-siguiente {
-            background-color: violet;
-            color: white;
-            text-decoration: none;
-        }
+    }
 
         /* Establecer imagen de fondo para el botón "Atrás" */
         .boton-atras {
-            background-image: url('Imagenes/atras.png'); /*  'ruta-de-la-imagen' con la ruta de tu imagen */
+            background-image: url('../imagenes/atras.png'); /*  'ruta-de-la-imagen' con la ruta de tu imagen */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            margin-right: 10px;
+            
         }
 
         /* Establecer imagen de fondo para el botón "Siguiente" */
         .boton-siguiente {
-            background-image: url('Imagenes/adelante.png'); /* 'ruta-de-la-imagen' con la ruta de tu imagen */
+            background-image: url('../imagenes/adelante.png'); /* 'ruta-de-la-imagen'*/
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            margin-left: auto; /* Mueve el botón hacia la derecha */
         }
         /* Contenedor de los botones */
         .botones-container {
             display: flex;
             justify-content: space-between;
+            justify-content: flex-start; /* Alinear los botones a la izquierda */
+           /* align-items: center; /* Alinear verticalmente al centro */
         }
 
         .estrella {
             animation: estrellaAnimacion 1s ease infinite;
-            width: 60px;
+            background-image: url('../imagenes/estrellita.png'); /* Ruta de la imagen de la estrella */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 60px; /* Ajusta el tamaño de la estrella según tus preferencias */
+            height: 60px; /* Ajusta el tamaño de la estrella según tus preferencias */
         }
+
         .estrellas-container {
             position: absolute;
             top: 10%;
@@ -98,21 +115,34 @@
             0% {
                 transform: scale(1);
             }
-             50% {
-                 transform: scale(1.5);
+            50% {
+                transform: scale(1.5);
             }
             100% {
                 transform: scale(1);
             }
         }
+                .puntaje-container {
+            position: absolute;
+            top: 20%;
+            left: 10px;
+            transform: translatey(-50%);
+            color: white;
+        }
+
+        .puntaje-container p {
+            font-size: 30px;
+            margin: 0;
+        }
+
     </style>
 </head>
 <body>
     <center>
         <h1>ESCUCHA Y RESPONDE</h1>
-        <img src="Imagenes/mimama.png" alt="Imagen" onclick="reproducirSonido()">
-        <audio id="sonido" src="Sonidos/mimameama.mp3" preload="auto"></audio>
-        <audio id="fallasteAudio" src="Sonidos/error.mp3" preload="auto"></audio>
+        <img src="../imagenes/mimama.png" alt="Imagen" onclick="reproducirSonido()">
+        <audio id="sonido" src="../sonidos/mimameama.mp3" preload="auto"></audio>
+        <audio id="fallasteAudio" src="../sonidos/error2.mp3" preload="auto"></audio>
 
         <script>
             function reproducirSonido() {
@@ -124,20 +154,20 @@
         <h1>COMPLETA LA PALABRA</h1>
         <input type="text" id="texto" placeholder="coloque las palabras aqui" readonly>
         
-        <button onclick="borrarTexto()" class="boton-borrar">Borrar</button>
+        
 
         <div id="buttonContainer"></div>
-
+        
     </center>
 
     <script>
         var buttons = [
-            { label: "PE", onclick: "agregarTexto('PE')" },
-            { label: "MI", onclick: "agregarTexto('MI')" },
-            { label: "ME", onclick: "agregarTexto('ME')" },
-            { label: "MA", onclick: "agregarTexto('MA')" },
-            { label: "AMA", onclick: "agregarTexto('AMA')" },
-            { label: "MÁ", onclick: "agregarTexto('MÁ')" }
+            { label: "pe", onclick: "agregarTexto('pe')" },
+            { label: "Mi", onclick: "agregarTexto('Mi')" },
+            { label: "me", onclick: "agregarTexto('me')" },
+            { label: "ma", onclick: "agregarTexto('ma')" },
+            { label: "ama", onclick: "agregarTexto('ama')" },
+            { label: "má", onclick: "agregarTexto('má')" }
         ];
 
         function shuffle(array) {
@@ -169,32 +199,48 @@
             });
         }
 
-        createButtons();
-
         function agregarTexto(texto) {
             var input = document.getElementById("texto");
             input.value += texto;
 
             // Verificar si la palabra completa ha sido formada
             if (input.value.toLowerCase() === "mimamámeama") {
-                var palabras = ["MI", "MAMÁ", "ME", "AMA"];
+                var palabras = ["Mi", "mamá", "me", "ama"];
                 var fraseSeparada = palabras.join(" ");
 
-                var felicitacionesAudio = new Audio('Sonidos/felicidades.mp3');
+                var felicitacionesAudio = new Audio('../sonidos/felicidades.mp3');
                 felicitacionesAudio.play();
 
                 // Mostrar la frase separada en la pantalla
                 input.value = fraseSeparada;
 
-                // Agregar estrellitas
+                // Habilitar el botón "Siguiente"
+                var botonSiguiente = document.getElementById("botonSiguiente");
+                botonSiguiente.disabled = false;
+
+                 // Mostrar las estrellas durante 3 segundos
                 var estrellasContainer = document.createElement('div');
                 estrellasContainer.classList.add('estrellas-container');
                 for (var i = 0; i < 5; i++) {
-                    var estrella = document.createElement('img');
-                    estrella.src = 'Imagenes/estrellita.png';
-                    estrella.classList.add('estrella');
-                    estrellasContainer.appendChild(estrella);
+                var estrella = document.createElement('div');
+                estrella.classList.add('estrella');
+                estrellasContainer.appendChild(estrella);
                 }
+
+                var body = document.querySelector('body');
+                body.appendChild(estrellasContainer);
+
+                setTimeout(function() {
+                estrellasContainer.remove();
+                }, 3000);
+
+            // Mostrar el puntaje
+            var puntajeContainer = document.createElement('div');
+            puntajeContainer.classList.add('puntaje-container');
+            var puntajeTexto = document.createElement('p');
+            puntajeTexto.textContent = 'Puntaje: 5/5'; // Aquí puedes mostrar el puntaje actual
+            puntajeContainer.appendChild(puntajeTexto);
+            body.appendChild(puntajeContainer);
 
                 var body = document.querySelector('body');
                 body.appendChild(estrellasContainer);
@@ -213,12 +259,19 @@
             if (estrellasContainer) {
                 estrellasContainer.parentNode.removeChild(estrellasContainer);
             }
+
+            // Deshabilitar el botón "Siguiente"
+            var botonSiguiente = document.getElementById("botonSiguiente");
+            botonSiguiente.disabled = true;
         }
+
+        createButtons();
     </script>
 
     <div class="botones-container">
-        <button onclick="location.href='NivelesO.php'" class="boton-atras">   </button>
-        <button onclick="location.href='nivel2_facil'" class="boton-siguiente">    </button>
+        <button onclick="location.href='../pantallas/NivelesO.php'" class="boton-atras"></button>
+        <button onclick="borrarTexto()" class="boton-borrar"></button>
+        <button id="botonSiguiente" onclick="location.href='nivel2_facil'" class="boton-siguiente" disabled></button>
     </div>
 </body>
 </html>
