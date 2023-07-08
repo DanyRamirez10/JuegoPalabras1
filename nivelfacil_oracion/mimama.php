@@ -271,7 +271,7 @@
     <div class="botones-container">
         <button onclick="location.href='../pantallas/NivelesO.php'" class="boton-atras"></button>
         <button onclick="borrarTexto()" class="boton-borrar"></button>
-        <button id="botonSiguiente" onclick="location.href='nivel2_facil'" class="boton-siguiente" disabled></button>
+        <button id="botonSiguiente" onclick="location.href='.php'" class="boton-siguiente" disabled></button>
     </div>
 </body>
 </html>

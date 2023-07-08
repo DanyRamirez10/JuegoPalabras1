@@ -9,7 +9,6 @@
     <style>
         /* Estilos CSS para los elementos de la página */
         body {
-           
             background-image: url('../imagenes/fondo2.jpg'); /* Ruta de la imagen de fondo */
             background-size: cover;
             background-position: center;
@@ -36,7 +35,6 @@
             font-family: 'Vladimir Script'; /* Cambia por la fuente que desees utilizar */
             font-weight: bold; /* Texto en negrita */
             text-align: center; /* Centrar el texto */
-            transition: transform 0.3s ease; /* Transición suave de la propiedad transform */
         }
         img {
             width: 300px; /* Establecer el ancho deseado para la imagen */
@@ -106,6 +104,7 @@
             width: 60px; /* Ajusta el tamaño de la estrella según tus preferencias */
             height: 60px; /* Ajusta el tamaño de la estrella según tus preferencias */
         }
+
         .estrellas-container {
             position: absolute;
             top: 10%;
@@ -123,7 +122,7 @@
                 transform: scale(1);
             }
         }
-        .puntaje-container {
+                .puntaje-container {
             position: absolute;
             top: 20%;
             left: 10px;
@@ -135,13 +134,14 @@
             font-size: 30px;
             margin: 0;
         }
+
     </style>
 </head>
 <body>
     <center>
         <h1>ESCUCHA Y RESPONDE</h1>
-        <img src="../imagenes/mipapalimpia.png" alt="Imagen" onclick="reproducirSonido()">
-        <audio id="sonido" src="../sonidos/limpiamesa.mp3" preload="auto"></audio>
+        <img src="../imagenes/pato2.png" alt="Imagen" onclick="reproducirSonido()">
+        <audio id="sonido" src="../sonidos/mimameama.mp3" preload="auto"></audio>
         <audio id="fallasteAudio" src="../sonidos/error2.mp3" preload="auto"></audio>
 
         <script>
@@ -162,14 +162,14 @@
 
     <script>
         var buttons = [
-            { label: "pa", onclick: "agregarTexto('pa')" },
-            { label: "pá", onclick: "agregarTexto('pá')" },
+            { label: "El", onclick: "agregarTexto('El')" },
+            { label: "to", onclick: "agregarTexto('to')" },
+            { label: "lasti", onclick: "agregarTexto('lasti')" },
+            { label: "pato", onclick: "agregarTexto('pato')" },
+            { label: "patita",onclick: "agregarTexto('patita')" },
+            { label: "se", onclick: "agregarTexto('se')" },
             { label: "la", onclick: "agregarTexto('la')" },
-            { label: "pia", onclick: "agregarTexto('pia')" },
-            { label: "lim", onclick: "agregarTexto('lim')" },
-            { label: "sa", onclick: "agregarTexto('sa')" },
-            { label: "me", onclick: "agregarTexto('me')" },
-            { label: "Mi", onclick: "agregarTexto('Mi')" }
+            { label: "mó", onclick: "agregarTexto('mó')" }
         ];
 
         function shuffle(array) {
@@ -204,11 +204,12 @@
         function agregarTexto(texto) {
             var input = document.getElementById("texto");
             input.value += texto;
-            
 
             // Verificar si la palabra completa ha sido formada
-            if (input.value.toLowerCase() === "mipapálimpialamesa") {
-                var palabras = ["Mi", "papa", "limpia", "la", "mesa"];
+            //if (input.value.toLowerCase() === "elpatoselastimólapatita") {
+                if (input.value.toLowerCase() === "elpatoselastimólapatita") {
+
+                var palabras = ["El", "pato", "se", "lastimó","la","patita"];
                 var fraseSeparada = palabras.join(" ");
 
                 var felicitacionesAudio = new Audio('../sonidos/felicidades.mp3');
@@ -221,7 +222,7 @@
                 var botonSiguiente = document.getElementById("botonSiguiente");
                 botonSiguiente.disabled = false;
 
-                // Mostrar las estrellas durante 3 segundos
+                 // Mostrar las estrellas durante 3 segundos
                 var estrellasContainer = document.createElement('div');
                 estrellasContainer.classList.add('estrellas-container');
                 for (var i = 0; i < 5; i++) {
@@ -247,7 +248,7 @@
 
                 var body = document.querySelector('body');
                 body.appendChild(estrellasContainer);
-            } else if (input.value.length >= 17) {
+            } else if (input.value.length >= 22) {
                 var fallasteAudio = document.getElementById("fallasteAudio");
                 fallasteAudio.play();
             }
@@ -263,19 +264,17 @@
                 estrellasContainer.parentNode.removeChild(estrellasContainer);
             }
 
-             // Deshabilitar el botón "Siguiente"
-             var botonSiguiente = document.getElementById("botonSiguiente");
+            // Deshabilitar el botón "Siguiente"
+            var botonSiguiente = document.getElementById("botonSiguiente");
             botonSiguiente.disabled = true;
         }
-
         createButtons();
     </script>
 
     <div class="botones-container">
-        <button onclick="location.href='../pantallas/NivelesO.php'" class="boton-atras">   </button>
-        <button onclick="borrarTexto()" class="boton-borrar">     </button>
-        <button id="botonSiguiente" onclick="location.href='pato.php'" class="boton-siguiente" disabled></button>
-    </div>
+        <button onclick="location.href='../pantallas/NivelesO.php'" class="boton-atras"></button>
+        <button onclick="borrarTexto()" class="boton-borrar"></button>
+        <button id="botonSiguiente" onclick="location.href='nivel2_facil'" class="boton-siguiente" disabled></button>
     </div>
 </body>
 </html>
