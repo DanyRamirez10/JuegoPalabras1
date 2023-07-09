@@ -122,7 +122,7 @@
                 transform: scale(1);
             }
         }
-                .puntaje-container {
+        .puntaje-container {
             position: absolute;
             top: 20%;
             left: 10px;
@@ -134,6 +134,38 @@
             font-size: 30px;
             margin: 0;
         }
+        .globo {
+            position: absolute;
+            top: -100px;
+            left: calc(50% - 25px);
+            width: 50px;
+            height: 50px;
+            background-image: url('../imagenes/globo.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: lluviaAnimacion 5s linear infinite;
+            }
+      .lluvia-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            overflow: hidden; /* Asegura que los globos estén dentro del contenedor */
+        }
+
+            @keyframes lluviaAnimacion {
+            0% {
+                transform: translateX(calc(50% - 25px)) translateY(-100px);
+            }
+            100% {
+                transform: translateX(calc(50% - 25px)) translateY(100vh);
+            }
+        }
+
 
     </style>
 </head>
@@ -162,12 +194,10 @@
 
     <script>
         var buttons = [
-            { label: "pe", onclick: "agregarTexto('pe')" },
             { label: "Mi", onclick: "agregarTexto('Mi')" },
             { label: "me", onclick: "agregarTexto('me')" },
-            { label: "ma", onclick: "agregarTexto('ma')" },
+            { label: "mamá", onclick: "agregarTexto('mamá')" },
             { label: "ama", onclick: "agregarTexto('ama')" },
-            { label: "má", onclick: "agregarTexto('má')" }
         ];
 
         function shuffle(array) {
@@ -200,54 +230,70 @@
         }
 
         function agregarTexto(texto) {
-            var input = document.getElementById("texto");
-            input.value += texto;
+                var input = document.getElementById("texto");
+                input.value += texto;
 
-            // Verificar si la palabra completa ha sido formada
-            if (input.value.toLowerCase() === "mimamámeama") {
-                var palabras = ["Mi", "mamá", "me", "ama"];
-                var fraseSeparada = palabras.join(" ");
+                // Verificar si la palabra completa ha sido formada
+                if (input.value.toLowerCase() === "mimamámeama") {
+                    var palabras = ["Mi", "mamá", "me", "ama"];
+                    var fraseSeparada = palabras.join(" ");
 
-                var felicitacionesAudio = new Audio('../sonidos/felicidades.mp3');
-                felicitacionesAudio.play();
+                    var felicitacionesAudio = new Audio('../sonidos/felicidades.mp3');
+                    felicitacionesAudio.play();
 
-                // Mostrar la frase separada en la pantalla
-                input.value = fraseSeparada;
+                    // Mostrar la frase separada en la pantalla
+                    input.value = fraseSeparada;
 
-                // Habilitar el botón "Siguiente"
-                var botonSiguiente = document.getElementById("botonSiguiente");
-                botonSiguiente.disabled = false;
+                    // Habilitar el botón "Siguiente"
+                    var botonSiguiente = document.getElementById("botonSiguiente");
+                    botonSiguiente.disabled = false;
 
-                 // Mostrar las estrellas durante 3 segundos
-                var estrellasContainer = document.createElement('div');
-                estrellasContainer.classList.add('estrellas-container');
-                for (var i = 0; i < 5; i++) {
-                var estrella = document.createElement('div');
-                estrella.classList.add('estrella');
-                estrellasContainer.appendChild(estrella);
+                    // Mostrar las estrellas durante 3 segundos
+                    var estrellasContainer = document.createElement('div');
+                    estrellasContainer.classList.add('estrellas-container');
+                    for (var i = 0; i < 5; i++) {
+                        var estrella = document.createElement('div');
+                        estrella.classList.add('estrella');
+                        estrellasContainer.appendChild(estrella);
+                    }
+
+                    var body = document.querySelector('body');
+                    body.appendChild(estrellasContainer);
+
+                    setTimeout(function () {
+                        estrellasContainer.remove();
+                    }, 3000);
+
+                    // Mostrar la lluvia de globos
+                    var lluviaContainer = document.createElement('div');
+                    lluviaContainer.classList.add('lluvia-container');
+                    for (var i = 0; i < 20; i++) {
+                        var globo = document.createElement('div');
+                        globo.classList.add('globo');
+                        lluviaContainer.appendChild(globo);
+                    }
+
+                    body.appendChild(lluviaContainer);
+
+                    setTimeout(function () {
+                        lluviaContainer.remove();
+                    }, 5000);
+
+                    // Mostrar el puntaje
+                    var puntajeContainer = document.createElement('div');
+                    puntajeContainer.classList.add('puntaje-container');
+                    var puntajeTexto = document.createElement('p');
+                    puntajeTexto.textContent = 'Puntaje: 5/5'; // Puedes ajustar el puntaje actual aquí
+                    puntajeContainer.appendChild(puntajeTexto);
+                    body.appendChild(puntajeContainer);
+
+                    setTimeout(function () {
+                        puntajeContainer.remove();
+                    }, 3000);
+                } else if (input.value.length >= 10) {
+                    var fallasteAudio = document.getElementById("fallasteAudio");
+                    fallasteAudio.play();
                 }
-
-                var body = document.querySelector('body');
-                body.appendChild(estrellasContainer);
-
-                setTimeout(function() {
-                estrellasContainer.remove();
-                }, 3000);
-
-            // Mostrar el puntaje
-            var puntajeContainer = document.createElement('div');
-            puntajeContainer.classList.add('puntaje-container');
-            var puntajeTexto = document.createElement('p');
-            puntajeTexto.textContent = 'Puntaje: 5/5'; // Aquí puedes mostrar el puntaje actual
-            puntajeContainer.appendChild(puntajeTexto);
-            body.appendChild(puntajeContainer);
-
-                var body = document.querySelector('body');
-                body.appendChild(estrellasContainer);
-            } else if (input.value.length >= 10) {
-                var fallasteAudio = document.getElementById("fallasteAudio");
-                fallasteAudio.play();
-            }
         }
 
         function borrarTexto() {
@@ -271,7 +317,7 @@
     <div class="botones-container">
         <button onclick="location.href='../pantallas/NivelesO.php'" class="boton-atras"></button>
         <button onclick="borrarTexto()" class="boton-borrar"></button>
-        <button id="botonSiguiente" onclick="location.href='.php'" class="boton-siguiente" disabled></button>
+        <button id="botonSiguiente" onclick="location.href='niñollorando.php'" class="boton-siguiente" disabled></button>
     </div>
 </body>
 </html>

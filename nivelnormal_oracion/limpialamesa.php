@@ -24,7 +24,7 @@
 
         button {
             display: inline-block;
-            width: 150px;
+            width: 185px;
             height: 80px;
             background-color: white; /* Fondo  para los botones  */
             border-radius: 10px;
@@ -162,13 +162,12 @@
 
     <script>
         var buttons = [
-            { label: "pa", onclick: "agregarTexto('pa')" },
-            { label: "pá", onclick: "agregarTexto('pá')" },
+            { label: "ta", onclick: "agregarTexto('ta')" },
+            { label: "papá", onclick: "agregarTexto('papá')" },
             { label: "la", onclick: "agregarTexto('la')" },
-            { label: "pia", onclick: "agregarTexto('pia')" },
-            { label: "lim", onclick: "agregarTexto('lim')" },
-            { label: "sa", onclick: "agregarTexto('sa')" },
-            { label: "me", onclick: "agregarTexto('me')" },
+            { label: "pi", onclick: "agregarTexto('pi')" },
+            { label: "limpia", onclick: "agregarTexto('limpia')" },
+            { label: "mesa", onclick: "agregarTexto('mesa')" },
             { label: "Mi", onclick: "agregarTexto('Mi')" }
         ];
 

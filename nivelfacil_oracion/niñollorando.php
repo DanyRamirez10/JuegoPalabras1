@@ -23,7 +23,7 @@
 
         button {
             display: inline-block;
-            width: 185px;/*tamañono del boton*/
+            width: 195px;
             height: 80px;
             background-color: white; /* Fondo  para los botones  */
             border-radius: 10px;
@@ -140,7 +140,7 @@
 <body>
     <center>
         <h1>ESCUCHA Y RESPONDE</h1>
-        <img src="../imagenes/pato2.png" alt="Imagen" onclick="reproducirSonido()">
+        <img src="../imagenes/niñollora.png" alt="Imagen" onclick="reproducirSonido()">
         <audio id="sonido" src="../sonidos/mimameama.mp3" preload="auto"></audio>
         <audio id="fallasteAudio" src="../sonidos/error2.mp3" preload="auto"></audio>
 
@@ -163,12 +163,10 @@
     <script>
         var buttons = [
             { label: "El", onclick: "agregarTexto('El')" },
-            { label: "to", onclick: "agregarTexto('to')" },
-            { label: "lastimó", onclick: "agregarTexto('lastimó')" },
-            { label: "pato", onclick: "agregarTexto('pato')" },
-            { label: "patita",onclick: "agregarTexto('patita')" },
-            { label: "se", onclick: "agregarTexto('se')" },
-            { label: "la", onclick: "agregarTexto('la')" }
+            { label: "niño", onclick: "agregarTexto('niño')" },
+            { label: "llorando", onclick: "agregarTexto('llorando')" },
+            { label: "esta", onclick: "agregarTexto('esta')" },
+    
         ];
 
         function shuffle(array) {
@@ -205,10 +203,8 @@
             input.value += texto;
 
             // Verificar si la palabra completa ha sido formada
-            //if (input.value.toLowerCase() === "elpatoselastimólapatita") {
-                if (input.value.toLowerCase() === "elpatoselastimólapatita") {
-
-                var palabras = ["El", "pato", "se", "lastimó","la","patita"];
+            if (input.value.toLowerCase() === "elniñoestallorando") {
+                var palabras = ["El", "niño", "esta", "llorando"];
                 var fraseSeparada = palabras.join(" ");
 
                 var felicitacionesAudio = new Audio('../sonidos/felicidades.mp3');
@@ -247,7 +243,7 @@
 
                 var body = document.querySelector('body');
                 body.appendChild(estrellasContainer);
-            } else if (input.value.length >= 22) {
+            } else if (input.value.length >= 17) {
                 var fallasteAudio = document.getElementById("fallasteAudio");
                 fallasteAudio.play();
             }
@@ -267,13 +263,14 @@
             var botonSiguiente = document.getElementById("botonSiguiente");
             botonSiguiente.disabled = true;
         }
+
         createButtons();
     </script>
 
     <div class="botones-container">
         <button onclick="location.href='../pantallas/NivelesO.php'" class="boton-atras"></button>
         <button onclick="borrarTexto()" class="boton-borrar"></button>
-        <button id="botonSiguiente" onclick="location.href='nivel2_facil'" class="boton-siguiente" disabled></button>
+        <button id="botonSiguiente" onclick="location.href='perrohambre.php'" class="boton-siguiente" disabled></button>
     </div>
 </body>
 </html>
