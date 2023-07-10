@@ -55,6 +55,7 @@
     <button onclick="location.href='../nivelBasico/pelota.php'">Nivel Facil</button> <!-- Botón para ir a otra página -->
     <button onclick="location.href='NIVEL1_NORMALp.php'">Nivel Normal</button> <!-- Botón para ir a otra página -->
     <button onclick="location.href='../nivelDificilP/juego.php'">Nivel Dificil</button> <!-- Botón para ir a otra página -->
+
 </Center>
 <div class="botones-container">
      <button onclick="location.href='ModoJuego.php'" class="boton-atras">     </button><!-- Botón para ir a otra página -->

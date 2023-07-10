@@ -24,7 +24,7 @@
         text-transform: uppercase; /* Transformar el texto a mayúsculas */
     }
     body {
-        background-image: url("Imagenes/oracion.png");
+        background-image: url("../imagenes/oracion.png");
         background-size: 50%; /* Reducir el tamaño de la imagen */
         background-size: cover;
         background-repeat: no-repeat;
@@ -37,7 +37,7 @@
     }
     /* Establecer imagen de fondo para el botón "Atrás" */
     .boton-atras {
-            background-image: url('Imagenes/atrasNiveles.png'); /*  'ruta-de-la-imagen' con la ruta de tu imagen */
+            background-image: url('../imagenes/retroceder.png'); /*  'ruta-de-la-imagen' con la ruta de tu imagen */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -54,8 +54,8 @@
 <Center>
     
     <br>
-    <button onclick="location.href='nivelfacil1_orac.php'">Nivel Facil</button> <!-- Botón para ir a otra página -->
-    <button onclick="location.href='nivelnormal1_orac.php'">Nivel Normal</button> <!-- Botón para ir a otra página -->
+    <button onclick="location.href='../nivelfacil_oracion/mimama.php'">Nivel Facil</button> <!-- Botón para ir a otra página -->
+    <button onclick="location.href='../nivelnormal_oracion/limpialamesa.php'">Nivel Normal</button> <!-- Botón para ir a otra página -->
     <button onclick="location.href='Juego.php'">Nivel Dificil</button> <!-- Botón para ir a otra página -->
 </Center>
 <div class="botones-container">
