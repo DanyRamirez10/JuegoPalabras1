@@ -163,7 +163,6 @@
     <script>
         var buttons = [
             { label: "El", onclick: "agregarTexto('El')" },
-            { label: "to", onclick: "agregarTexto('to')" },
             { label: "lastimó", onclick: "agregarTexto('lastimó')" },
             { label: "pato", onclick: "agregarTexto('pato')" },
             { label: "patita",onclick: "agregarTexto('patita')" },
