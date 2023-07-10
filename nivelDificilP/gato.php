@@ -49,8 +49,8 @@
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center;
-            padding-left: 50px;
-            padding-right: 50px;
+            padding-left: 40px;
+            padding-right: 40px;
         }
 
         #redireccionar:hover {
@@ -58,11 +58,35 @@
             font-size: 22px;
             border: groove 4px green;
         }
+        #volver {
+            background-color: blue;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bolder;
+            padding: 30px;
+            border: solid 2px black;
+            position: fixed;
+            bottom: 20px;
+            left: 50px; /* Ajusta la posición izquierda según tus necesidades */
+            background-image: url('../imagenes/atrasdific.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            padding-left: 60px;
+            padding-right: 80px;
+        }
+
+        #volver:hover {
+            background-color: lightgreen;
+            font-size: 22px;
+            border: groove 4px blue;
+        }
     </style>
 </head>
 
 <body>
-    <h1>-JUEGO DE PALABRAS-</h1>
+    <h1>-FORMANDO PALABRAS-</h1>
     <canvas id="pantalla" width="960px" height="450px">
         <!-- etiqueta del canvas con sus medidas en la pantalla -->
         Tu navegador no soporta Canvas.
@@ -71,7 +95,7 @@
     <button id="boton" type="reset" onclick="javascript:window.location.reload();">Volver a Jugar</button>
     <!-- Botón adicional para redireccionar a otro archivo -->
     <button id="redireccionar" onclick="javascript:window.location.href = 'otroarchivo.html';">Ir a otro archivo</button>
-
+    <button id="volver" onclick="javascript:window.location.href = '../pantallas/NivelesP.php';">    </button>
 
     <script>
         /* Variables */
@@ -206,7 +230,7 @@
         /* dibujar cadalzo y partes del pj segun sea el caso */
         function horca(errores) {
             var imagen = new Image();
-            imagen.src = "imagenes/gato.jpg";
+            imagen.src = "../imagenes/gato.jpg";
             imagen.onload = function () {
                 ctx.drawImage(imagen, 390, 0, 230, 230);
             }

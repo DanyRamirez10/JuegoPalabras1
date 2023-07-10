@@ -14,6 +14,7 @@
             background-size: 60%;/* valor para reducir imagen*/
             background-repeat: no-repeat;
             background-position: center;
+            
         }
     
         button {
@@ -25,7 +26,11 @@
             margin: 40px 13px;
             color: #22083c;
             text-decoration: none;
-            font-size: 40px; /* Tamaño de fuente */
+            font-size: 55px; /* Tamaño de fuente */
+            font-family: 'Vladimir Script'; /* Cambia por la fuente que desees utilizar */
+            font-weight: bold; /* Texto en negrita */
+            text-align: center; /* Centrar el texto */
+        
         }
     
         button:hover {

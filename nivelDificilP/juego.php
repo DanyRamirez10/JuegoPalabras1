@@ -58,6 +58,30 @@
             font-size: 22px;
             border: groove 4px green;
         }
+        #volver {
+            background-color: blue;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bolder;
+            padding: 30px;
+            border: solid 2px black;
+            position: fixed;
+            bottom: 20px;
+            left: 20px; /* Ajusta la posición izquierda según tus necesidades */
+            background-image: url('../imagenes/atrasdific.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        #volver:hover {
+            background-color: lightgreen;
+            font-size: 22px;
+            border: groove 4px blue;
+        }
     </style>
 </head>
 
@@ -67,11 +91,12 @@
         <!-- etiqueta del canvas con sus medidas en la pantalla -->
         Tu navegador no soporta Canvas.
     </canvas>
+
     <!-- El boton que nos sirve para recargar la pagina y asi generar una nueva palabra y volver a jugar -->
     <button id="boton" type="reset" onclick="javascript:window.location.reload();">Volver a Jugar</button>
     <!-- Botón adicional para redireccionar a otro archivo -->
     <button id="redireccionar" onclick="javascript:window.location.href = 'gato.php';">Ir a otro archivo</button>
-
+    <button id="volver" onclick="javascript:window.location.href = '../pantallas/NivelesP.php';">    </button>
 
     <script>
         /* Variables */
@@ -98,7 +123,7 @@
 
         /* Palabra e imagen fija */
         var imagen1 = new Image();
-        imagen1.src = "../imagenes/leon.jpeg";
+        imagen1.src = "../imagenes/leon.jpg";
         palabras_array.push("LEON");
 
         /* Objetos */
@@ -206,7 +231,7 @@
         /* dibujar cadalzo y partes del pj segun sea el caso */
         function horca(errores) {
             var imagen = new Image();
-            imagen.src = "imagenes/leon.jpeg";
+            imagen.src = "../imagenes/leon.jpg";
             imagen.onload = function () {
                 ctx.drawImage(imagen, 390, 0, 230, 230);
             }
