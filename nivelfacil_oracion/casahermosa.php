@@ -175,7 +175,21 @@
             { label: "linda", onclick: "agregarTexto('linda')" },
             
         ];
+        //crear funcion para generar botones aleatorios cada vez que se 
+        //resetea con borrar
+        function crearBotonesAleatorios() {
+            var buttonContainer = document.getElementById("buttonContainer");
+            buttonContainer.innerHTML = "";
 
+            var shuffledButtons = shuffle(buttons);
+
+            shuffledButtons.forEach(function(buttonData) {
+                var button = document.createElement("button");
+                button.textContent = buttonData.label;
+                button.onclick = new Function(buttonData.onclick);
+                buttonContainer.appendChild(button);
+            });
+        }
         function shuffle(array) {
             var currentIndex = array.length, temporaryValue, randomIndex;
         
@@ -195,7 +209,7 @@
             var buttonContainer = document.getElementById("buttonContainer");
             buttonContainer.innerHTML = "";
 
-            var shuffledButtons = shuffle(buttons);
+            var shuffledButtons = crearBotonesAleatorios();
 
             shuffledButtons.forEach(function(buttonData) {
                 var button = document.createElement("button");
@@ -259,7 +273,7 @@
         function borrarTexto() {
             var input = document.getElementById("texto");
             input.value = "";
-
+            createButtons();
             // Eliminar el contenedor de las estrellas
             var estrellasContainer = document.querySelector('.estrellas-container');
             if (estrellasContainer) {
