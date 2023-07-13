@@ -32,7 +32,7 @@
             color: #22083c;
             text-decoration: none;
             font-size: 60px; /* Tamaño de fuente */
-            font-family: 'Vladimir Script'; /* Cambia por la fuente que desees utilizar */
+            font-family: 'French Script MT'; /* Cambia por la fuente que desees utilizar */
             font-weight: bold; /* Texto en negrita */
             text-align: center; /* Centrar el texto */
         }
@@ -55,9 +55,8 @@
             font-size: 18px;
             margin: 20px auto;
             font-weight: bold;
-            font-family: 'Vladimir Script';
+            font-family: 'French Script MT';
             font-size: 50px;
-            white-space: pre-wrap; /* Permite conservar los saltos de línea */
         }
 
         .boton-borrar {
@@ -71,13 +70,15 @@
 
         /* Establecer imagen de fondo para el botón "Atrás" */
         .boton-atras {
-            background-image: url('../imagenes/atras.png'); /*  'ruta-de-la-imagen' con la ruta de tu imagen */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            margin-right: 10px;
-            
-        }
+        background-image: url('../imagenes/retroceder.png');
+        width: 80px; /* Ajustar el ancho del botón */
+        height: 80px; /* Ajustar la altura del botón */
+        padding: 0; /* Eliminar el padding */
+        margin: 10px; /* Ajustar el margin */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 
         /* Establecer imagen de fondo para el botón "Siguiente" */
         .boton-siguiente {

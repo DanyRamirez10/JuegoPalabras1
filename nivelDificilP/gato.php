@@ -35,50 +35,44 @@
         }
         
         #redireccionar {
-            background-color: green;
-            color: white;
-            font-size: 20px;
+            background-color: blue;
             text-align: center;
             font-weight: bolder;
-            padding: 30px;
+            padding: 0px;
             border: solid 2px black;
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-image: url('Abancay');
+            background-image: url('../imagenes/adelante.png');
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center;
-            padding-left: 40px;
-            padding-right: 40px;
+            width: 100px; /* Ajustar el ancho del botón */
+            height: 100px; /* Ajustar la altura del botón */
         }
 
         #redireccionar:hover {
-            background-color: lightgreen;
+            background-color: blue;
             font-size: 22px;
-            border: groove 4px green;
+            border: groove 4px blue;
         }
         #volver {
             background-color: blue;
-            color: white;
-            font-size: 20px;
-            text-align: center;
-            font-weight: bolder;
-            padding: 30px;
+            padding: 0px;
             border: solid 2px black;
             position: fixed;
             bottom: 20px;
-            left: 50px; /* Ajusta la posición izquierda según tus necesidades */
+            left: 20px; /* Ajusta la posición izquierda según tus necesidades */
             background-image: url('../imagenes/atrasdific.png');
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center;
-            padding-left: 60px;
-            padding-right: 80px;
+            width: 90px; /* Ajustar el ancho del botón */
+            height: 90px; /* Ajustar la altura del botón */
         }
 
         #volver:hover {
-            background-color: lightgreen;
+            background-color: blue;
             font-size: 22px;
             border: groove 4px blue;
         }
@@ -94,7 +88,7 @@
     <!-- El boton que nos sirve para recargar la pagina y asi generar una nueva palabra y volver a jugar -->
     <button id="boton" type="reset" onclick="javascript:window.location.reload();">Volver a Jugar</button>
     <!-- Botón adicional para redireccionar a otro archivo -->
-    <button id="redireccionar" onclick="javascript:window.location.href = 'otroarchivo.html';">Ir a otro archivo</button>
+    <button id="redireccionar" onclick="javascript:window.location.href = 'otroarchivo.html';">    </button>
     <button id="volver" onclick="javascript:window.location.href = '../pantallas/NivelesP.php';">    </button>
 
     <script>

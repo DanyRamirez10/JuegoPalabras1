@@ -66,17 +66,22 @@
         background-position: center;
         background-repeat: no-repeat;
         margin-right: 10px;
+        width: 100px; /* Ajustar el ancho del botón */
+        height: 100px; /* Ajustar la altura del botón */
 
     }
 
         /* Establecer imagen de fondo para el botón "Atrás" */
         .boton-atras {
-            background-image: url('../imagenes/atras.png'); /*  'ruta-de-la-imagen' con la ruta de tu imagen */
+            background-image: url('../imagenes/retroceder.png');
+            width: 100px; /* Ajustar el ancho del botón */
+            height: 100px; /* Ajustar la altura del botón */
+            padding: 0; /* Eliminar el padding */
+            margin: 10px; /* Ajustar el margin */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            margin-right: 10px;
-            
+                
         }
 
         /* Establecer imagen de fondo para el botón "Siguiente" */
@@ -86,6 +91,8 @@
             background-position: center;
             background-repeat: no-repeat;
             margin-left: auto; /* Mueve el botón hacia la derecha */
+            width: 100px; /* Ajustar el ancho del botón */
+            height: 100px; /* Ajustar la altura del botón */
         }
         /* Contenedor de los botones */
         .botones-container {

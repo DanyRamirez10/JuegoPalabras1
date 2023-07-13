@@ -141,7 +141,36 @@
   0% { transform: translate(-50%, -50%) rotate(0deg); }
   100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
+/*funcion globos*/
+@keyframes balloonRain {
+        0% {
+          transform: translate(-50%, -100%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, 100vh) rotate(360deg);
+        }
+      }
 
+        .balloon-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .balloon {
+      width: 50px;
+      height: 70px;
+      background-image: url('../imagenes/globo.png'); /* Ruta de la imagen del globo */
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      animation: balloonRain 5s linear infinite;
+    }/*funcion globos*/
   </style>
 </head>
 <body>
@@ -224,6 +253,7 @@
     });
 
     function checkWord() {
+      var successMessageElement = document.getElementById('successMessage'); // Obtener la referencia al elemento del mensaje de éxito
       var currentSyllables = Array.from(dropZone.children).map(function(element) {
         return element.getAttribute('data-component');
       });
@@ -236,6 +266,21 @@
         stars += '★';
         updateStars();
         document.getElementById('redirectButton').removeAttribute('disabled');
+        // Crear globos y agregarlos al contenedor
+        var balloonContainer = document.createElement('div');
+        balloonContainer.classList.add('balloon-container');
+        for (var i = 0; i < 20; i++) {
+          var balloon = document.createElement('div');
+          balloon.classList.add('balloon');
+          balloonContainer.appendChild(balloon);
+        }
+        document.body.appendChild(balloonContainer);
+
+    // Restablecer el contenido del contenedor después de 3 segundos
+    setTimeout(function() {
+      successMessageElement.innerHTML = '';
+      balloonContainer.remove();
+    }, 3000);
       } else if (currentSyllables.length >= 2) {
         showErrorMessage('Palabra incorrecta. No se formó la palabra correcta.');
         errorAudio.play();

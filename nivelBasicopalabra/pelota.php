@@ -34,7 +34,8 @@
       font-style: italic;
       font-weight: bold;
       font-size: 66px;
-      font-family: 'Vladimir Script';
+      font-family: 'lumen';
+      border: 4px solid #000; /* Añadir borde de 2px de ancho y color negro */
     }
 
     #dropZone {
@@ -137,6 +138,37 @@
       background-position: center;
       background-size: contain;
     }
+    /*funcion globos*/
+          @keyframes balloonRain {
+        0% {
+          transform: translate(-50%, -100%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, 100vh) rotate(360deg);
+        }
+      }
+
+        .balloon-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .balloon {
+      width: 50px;
+      height: 70px;
+      background-image: url('../imagenes/globo.png'); /* Ruta de la imagen del globo */
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      animation: balloonRain 5s linear infinite;
+    }/*funcion globos*/
+
   </style>
 </head>
 <body>
@@ -172,14 +204,14 @@
     <div>
       <div class="clickableElement" data-sound="sound4">Pe</div>
       <div class="clickableElement" data-sound="sound5">lo</div>
-      <div class="clickableElement" data-sound="sound5">ta.</div>
+      <div class="clickableElement" data-sound="sound5">ta</div>
 
     </div>
     <div id="score">Puntaje: 0</div>
     <div id="stars"></div>
     <div id="successMessage"></div>
     <div id="errorMessage"></div>
-    <button id="redirectButton"></button>
+    <button id="redirectButton" disabled></button>
     <button id="backButton" onclick="goBack()"></button>
     <button id="reloadButton" onclick="reloadPage()"></button>
   </div>
@@ -244,6 +276,7 @@
     });
 
     function checkWord() {
+      var successMessageElement = document.getElementById('successMessage'); // Obtener la referencia al elemento del mensaje de éxito
       var currentSyllables = Array.from(dropZone.children).map(function(element) {
         return element.getAttribute('data-component');
       });
@@ -255,6 +288,23 @@
         updateScore();
         stars += '★';
         updateStars();
+        document.getElementById('redirectButton').removeAttribute('disabled');
+      // Crear globos y agregarlos al contenedor
+        var balloonContainer = document.createElement('div');
+        balloonContainer.classList.add('balloon-container');
+        for (var i = 0; i < 20; i++) {
+          var balloon = document.createElement('div');
+          balloon.classList.add('balloon');
+          balloonContainer.appendChild(balloon);
+        }
+        document.body.appendChild(balloonContainer);
+
+    // Restablecer el contenido del contenedor después de 3 segundos
+    setTimeout(function() {
+      successMessageElement.innerHTML = '';
+      balloonContainer.remove();
+    }, 3000);
+
       } else if (currentSyllables.length >= 3) {
         showErrorMessage('Palabra incorrecta. No se formó la palabra correcta.');
         errorAudio.play();
@@ -263,7 +313,16 @@
         errorAudio.play();
       }
     }
-
+    //funcion para que los globos roten
+    function randomizeBalloons() {
+    var balloons = document.querySelectorAll('.balloon');
+    balloons.forEach(function(balloon) {
+      var randomDelay = Math.random() * 3 + 1; // Retraso aleatorio para la animación
+      var randomDuration = Math.random() * 5 + 5; // Duración aleatoria para la animación
+      balloon.style.animationDelay = randomDelay + 's';
+      balloon.style.animationDuration = randomDuration + 's';
+    });
+  }
     function showSuccessMessage(message) {
   var successMessageElement = document.getElementById('successMessage');
   successMessageElement.innerHTML = '<img src="../imagenes/feli.gif" alt="Imagen sin fondo" style="width: 100%; height: auto; animation: zoomAndBlink 1s infinite;">';
@@ -309,6 +368,7 @@
     }
 
     var redirectButton = document.getElementById('redirectButton');
+    
     redirectButton.addEventListener('click', function() {
       window.location.href = 'casa.php';
     });
@@ -321,4 +381,5 @@
     }
   </script>
 </body>
-</html>
+</html>                
+

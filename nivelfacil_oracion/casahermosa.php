@@ -66,6 +66,8 @@
         background-position: center;
         background-repeat: no-repeat;
         margin-right: 10px;
+        width: 100px; /* Ajustar el ancho del botón */
+        height: 100px; /* Ajustar la altura del botón */
 
     }
 
@@ -76,6 +78,8 @@
             background-position: center;
             background-repeat: no-repeat;
             margin-right: 10px;
+            width: 100px; /* Ajustar el ancho del botón */
+            height: 100px; /* Ajustar la altura del botón */
             
         }
 
@@ -86,6 +90,8 @@
             background-position: center;
             background-repeat: no-repeat;
             margin-left: auto; /* Mueve el botón hacia la derecha */
+            width: 100px; /* Ajustar el ancho del botón */
+            height: 100px; /* Ajustar la altura del botón */
         }
         /* Contenedor de los botones */
         .botones-container {
