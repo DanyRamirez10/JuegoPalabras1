@@ -64,6 +64,7 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        float: left; /* Mover el botón a la izquierda */
     }
 
     /* Establecer imagen de fondo para el botón "Nivel Fácil" */
@@ -81,6 +82,24 @@
         background-image: url('../imagenes/niveldificil.png');
     }
 
+    /* Establecer para los botones adicionales */
+    .boton-adicional {
+        width: 150px; /* Ajustar el ancho del botón adicional */
+        height: 50px; /* Ajustar la altura del botón adicional */
+        padding: 10px 20px; /* Ajustar el padding del botón adicional */
+        margin: 3px 40px; /* Ajustar el margin del botón adicional */
+        background-color: blueviolet;
+    }
+    
+    .botones-container1 {
+        text-align: center; /* Centrar los botones adicionales horizontalmente */
+    }
+    button.botones-container1:hover {
+        background-color: transparent;
+        border: 2px solid blue;
+        color: blue;
+    }
+
     h1 {
         text-align: center;
     }
@@ -89,19 +108,25 @@
     <h1>BIENVENIDO AL JUEGO DE ORACIONES</h1>
     <center>
         <br>
-        <button onclick="location.href='../nivelfacil_oracion/mimama.php'" class="nivel-facil">
+        <button class="nivel-facil">
             <span class="button-text">Nivel Fácil</span>
         </button>
-        <button onclick="location.href='../nivelnormal_oracion/limpialamesa.php'" class="nivel-normal">
+        <button class="nivel-normal">
             <span class="button-text">Nivel Normal</span>
         </button>
-        <button onclick="location.href='../nivelDificilP/jue.php'" class="nivel-dificil">
+        <button class="nivel-dificil">
             <span class="button-text">Nivel Difícil</span>
         </button>
     </center>
+    <div class="botones-container1">
+        <button onclick="location.href='../nivelfacil_oracion/mimama.php'" class="boton-adicional">PLAY</button>
+        <button onclick="location.href='../nivelnormal_oracion/limpialamesa.php'" class="boton-adicional">PLAY</button>
+        <button onclick="location.href='../nivelDificilP/jue.php'" class="boton-adicional">PLAY</button>
+    </div>
     <div class="botones-container">
         <button onclick="location.href='ModoJuego.php'" class="boton-atras"></button>
     </div>
 </body>
 </html>
+
 

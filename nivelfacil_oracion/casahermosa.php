@@ -98,7 +98,7 @@
             display: flex;
             justify-content: space-between;
             justify-content: flex-start; /* Alinear los botones a la izquierda */
-           /* align-items: center; /* Alinear verticalmente al centro */
+           
         }
 
         .estrella {
