@@ -56,7 +56,7 @@
 
     /* Establecer imagen de fondo para el botón "Atrás" */
     .boton-atras {
-        background-image: url('../imagenes/retroceder.png');
+        background-image: url('../imagenes/retrocederr.png');
         width: 100px; /* Ajustar el ancho del botón */
         height: 100px; /* Ajustar la altura del botón */
         padding: 0; /* Eliminar el padding */

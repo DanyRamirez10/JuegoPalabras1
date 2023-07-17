@@ -121,7 +121,7 @@
     <div class="botones-container1">
         <button onclick="location.href='../nivelfacil_oracion/mimama.php'" class="boton-adicional">PLAY</button>
         <button onclick="location.href='../nivelnormal_oracion/limpialamesa.php'" class="boton-adicional">PLAY</button>
-        <button onclick="location.href='../nivelDificilP/jue.php'" class="boton-adicional">PLAY</button>
+        <button onclick="location.href='../niveldificiloracion/juanespera.php'" class="boton-adicional">PLAY</button>
     </div>
     <div class="botones-container">
         <button onclick="location.href='ModoJuego.php'" class="boton-atras"></button>
